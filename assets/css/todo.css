@@ -27,6 +27,13 @@ input{
     width: 100%;
     padding: 13px 13px 13px 20px;
     box-sizing: border-box;
+    color : #2980E9;
+}
+
+input:focus{
+    background: white;
+    border: 3px solid #2980B9;
+    outline: none;
 }
 
 li:nth-child(2n){
@@ -35,6 +42,15 @@ li:nth-child(2n){
 
 body{
     font-family: Roboto;
+    background: #5C258D;
+    /* fallback for old browsers */
+
+    background: -webkit-linear-gradient(to right, #4389A2, #5C258D);
+    /* Chrome 10-25, Safari 5.1-6 */
+
+    background: linear-gradient(to right, #4389A2, #5C258D);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 #container{
