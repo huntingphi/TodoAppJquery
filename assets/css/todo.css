@@ -27,7 +27,9 @@ input{
     width: 100%;
     padding: 13px 13px 13px 20px;
     box-sizing: border-box;
-    color : #2980E9;
+    /* color : #2980E9; */
+    color: gray;
+    border: 3px solid rgb(0,0,0,0.0);
 }
 
 input:focus{
@@ -51,6 +53,27 @@ body{
     background: linear-gradient(to right, #4389A2, #5C258D);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+}
+
+li span{
+    background: #e74c3c;
+    height: 40px;
+    margin-right: 20px;
+    text-align: center;
+    color: white;
+    width: 0;
+    display: inline-block;
+    transition: 0.2s linear;
+    opacity: 0;
+}
+
+li:hover span{
+    width: 40px;
+    opacity: 1.0;
+}
+
+#add{
+    float: right;
 }
 
 #container{
