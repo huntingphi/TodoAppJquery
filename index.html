@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
+
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBlb6GIIFaJEBLmWYzJDuhQP8mo5uuFUTA",
+        authDomain: "todoapp-d61df.firebaseapp.com",
+        databaseURL: "https://todoapp-d61df.firebaseio.com",
+        projectId: "todoapp-d61df",
+        storageBucket: "",
+        messagingSenderId: "1085718581772"
+    };
+    firebase.initializeApp(config);
+    var database = firebase.database();
+</script>
+
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Todo App</title>
@@ -13,6 +32,7 @@
     crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/fontawesome.css" integrity="sha384-ozJwkrqb90Oa3ZNb+yKFW2lToAWYdTiF1vt8JiH5ptTGHTGcN7qdoR1F95e0kYyG"
     crossorigin="anonymous">
+    
 
 
     <!-- Compiled and minified CSS -->
@@ -29,10 +49,10 @@
         </div>
         <div id = "list">
         <ul>
-            <li> <span><i class = "fas fa-trash-alt"></i></span> Godliness!</li>
-            <li><span><i class = "fas fa-trash-alt"></i></span> Cogs</li>
-            <li><span><i class = "fas fa-trash-alt"></i></span> Startup</li>
-            <li><span><i class = "fas fa-trash-alt"></i></span> Lol</li>
+            <!-- <li> <span><i class = "fas fa-trash-alt"></i></span> Godliness!</li> -->
+            <!-- <li><span><i class = "fas fa-trash-alt"></i></span> Cogs</li> -->
+            <!-- <li><span><i class = "fas fa-trash-alt"></i></span> Startup</li> -->
+            <!-- <li><span><i class = "fas fa-trash-alt"></i></span> Lol</li> -->
         </ul>
     </div>
     </div>
