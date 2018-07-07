@@ -1,8 +1,14 @@
 var getTodos = firebase.database().ref('todos');
-getTodos.once('value',function(snapshot){
+getTodos.on('value',function(snapshot){
+    $("ul").empty();
     snapshot.forEach(function(childSnapshot){
         // alert(childSnapshot.key);
-        $("ul").append("<li id=\""+childSnapshot.key+"\"><span><i class = \"fas fa-trash-alt\"></i> </span>" + childSnapshot.val().todo + "</li>")
+        if(childSnapshot.val().completed === true){
+            $("ul").append("<li class = \"completed\" id=\"" + childSnapshot.key + "\"><span><i class = \"fas fa-trash-alt\"></i> </span>" + childSnapshot.val().todo + "</li>")
+
+        }else{
+            $("ul").append("<li id=\""+childSnapshot.key+"\"><span><i class = \"fas fa-trash-alt\"></i> </span>" + childSnapshot.val().todo + "</li>")
+        }
         // var id_selector = "\"#" + childSnapshot.key + "\"";
         // alert($(id_selector).id);
     })
@@ -10,6 +16,11 @@ getTodos.once('value',function(snapshot){
 
 $("ul").on("click","li",function () {
     $(this).toggleClass("completed");
+    var thisLiId = this.id;
+    alert(thisLiId);
+    firebase.database().ref('todos/' + thisLiId).update({
+        completed: $(this).hasClass("completed")
+    })
 })
 
 $("ul").on("click","span",function(e){
@@ -17,9 +28,10 @@ $("ul").on("click","span",function(e){
     $(this).parent().fadeOut(function(){
         $(this).remove();
         var thisLiId = this.id;
-        firebase.database().ref('todos/'+thisLiId).once('value',function(snapshot){
-            snapshot.remove();
-        })
+        firebase.database().ref('todos/'+thisLiId).remove();
+        // .once('value',function(snapshot){
+        //     snapshot.remove();
+        // })
 
     });
 });
@@ -43,6 +55,6 @@ function writeTodoData(description) {
     var newPostKey = firebase.database().ref().child('todos').push().key;
     // alert(newPostKey);
     firebase.database().ref('todos/'+newPostKey).update({
-        todo: description
+        todo: description,
     });
 }
