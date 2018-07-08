@@ -17,7 +17,7 @@ getTodos.on('value',function(snapshot){
 $("ul").on("click","li",function () {
     $(this).toggleClass("completed");
     var thisLiId = this.id;
-    alert(thisLiId);
+    // alert(thisLiId);
     firebase.database().ref('todos/' + thisLiId).update({
         completed: $(this).hasClass("completed")
     })
